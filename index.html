@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Neuro Mantra - आयुर्वेदिक सपोर्ट बच्चों के विकास के लिए">
   <title>Neuro Mantra – बच्चों के लिए आयुर्वेदिक सपोर्ट</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <!-- Critical resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
-    rel="stylesheet">
-  <link rel="preload" as="image" href="./Image/Hero.avif">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="./Image/Hero.avif" fetchpriority="high">
+  
   <style>
     :root {
       --primary: #0B3C5D;
@@ -24,6 +27,25 @@
       --primary-light: rgba(11, 60, 93, 0.08);
       --gold-light: rgba(244, 180, 0, 0.15);
       --green-light: rgba(123, 160, 91, 0.15);
+    }
+
+    /* Font fallback metrics to reduce CLS */
+    @font-face {
+      font-family: 'Hind Fallback';
+      src: local('Arial');
+      size-adjust: 95%;
+      ascent-override: 95%;
+      descent-override: 25%;
+      line-gap-override: 0%;
+    }
+
+    @font-face {
+      font-family: 'Tiro Devanagari Hindi Fallback';
+      src: local('Georgia');
+      size-adjust: 100%;
+      ascent-override: 90%;
+      descent-override: 22%;
+      line-gap-override: 0%;
     }
 
     * {
@@ -39,7 +61,7 @@
     }
 
     body {
-      font-family: 'Hind', sans-serif;
+      font-family: 'Hind', 'Hind Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans Devanagari', Arial, sans-serif;
       background: var(--bg);
       color: var(--text-dark);
       max-width: 450px;
@@ -54,6 +76,10 @@
       display: block;
     }
 
+    img[width][height] {
+      aspect-ratio: attr(width) / attr(height);
+    }
+
     .reveal {
       will-change: transform, opacity;
     }
@@ -66,6 +92,13 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+    }
+
+    .hero > img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 450 / 300;
+      object-fit: cover;
     }
 
     .hero-top-bar {
@@ -150,7 +183,7 @@
     }
 
     .hook-headline {
-      font-family: 'Tiro Devanagari Hindi', serif;
+      font-family: 'Tiro Devanagari Hindi', 'Tiro Devanagari Hindi Fallback', 'Noto Serif Devanagari', Georgia, 'Times New Roman', serif;
       font-size: 22px;
       font-weight: 400;
       color: var(--white);
@@ -330,6 +363,9 @@
     .section {
       padding: 36px 22px;
       contain: layout style;
+      min-height: 200px;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 500px;
     }
 
     .section-alt {
@@ -373,11 +409,12 @@
     }
 
     .section-title {
-      font-family: 'Tiro Devanagari Hindi', serif;
+      font-family: 'Tiro Devanagari Hindi', 'Tiro Devanagari Hindi Fallback', 'Noto Serif Devanagari', Georgia, 'Times New Roman', serif;
       font-size: 24px;
       line-height: 1.5;
       color: var(--text-dark);
       margin-bottom: 20px;
+      min-height: 36px;
     }
 
     .section-title.white {
@@ -445,6 +482,7 @@
       justify-content: center;
       width: 170px;
       height: 170px;
+      aspect-ratio: 1;
       margin: 0 auto 12px;
       background: linear-gradient(135deg, var(--gold-light) 0%, var(--white) 100%);
       border-radius: 20px;
@@ -593,6 +631,7 @@
     .result-pill-icon {
       width: 150px;
       height: 150px;
+      aspect-ratio: 1;
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       border-radius: 16px;
       display: flex;
@@ -872,6 +911,7 @@
 
     .ing-img {
       height: 150px;
+      aspect-ratio: 4 / 3;
       clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
       overflow: hidden;
     }
@@ -1403,6 +1443,7 @@
       justify-content: center;
       width: 140px;
       height: 140px;
+      aspect-ratio: 1;
       margin-left: auto;
       margin-right: auto;
       background: linear-gradient(
@@ -1516,7 +1557,7 @@
     }
 
     .offer-title {
-      font-family: 'Tiro Devanagari Hindi', serif;
+      font-family: 'Tiro Devanagari Hindi', 'Tiro Devanagari Hindi Fallback', 'Noto Serif Devanagari', Georgia, 'Times New Roman', serif;
       font-size: 26px;
       color: var(--primary);
       line-height: 1.4;
@@ -1753,6 +1794,7 @@
     .review-avatar {
       width: 56px;
       height: 56px;
+      aspect-ratio: 1;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       display: flex;
@@ -2409,6 +2451,16 @@
       cursor: not-allowed;
     }
   </style>
+
+  <!-- Async font loading to reduce critical chain -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=optional" rel="stylesheet"></noscript>
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://www.facebook.com">
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
 </head>
 
 <body>
@@ -2800,16 +2852,27 @@
 
   <head>
 
-    <!-- ORDER FORM SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <!-- ORDER FORM SCRIPT - Deferred Loading -->
     <script>
-      function submitOrder(event) {
-        // Placeholder function for order submission
-        console.log('Order submitted');
+      // Load SweetAlert2 only when needed
+      let SwalLoaded = false;
+      function loadSwal() {
+        if (!SwalLoaded && !window.Swal) {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+          script.async = true;
+          document.head.appendChild(script);
+          SwalLoaded = true;
+          return new Promise(resolve => {
+            script.onload = resolve;
+          });
+        }
+        return Promise.resolve();
       }
 
-      function showThankYou(event) {
+      async function showThankYou(event) {
         event.preventDefault();
+        await loadSwal(); // Load Swal on-demand
 
         const form = event.target;
         const submitBtn = form.querySelector('.submit-btn');
@@ -3145,7 +3208,7 @@
   </div>
 
   <script>
-    // FAQ toggle - optimized
+    // FAQ toggle - critical function (kept in global scope)
     function toggleFaq(el) {
       const item = el.parentElement;
       const isOpen = item.classList.contains('open');
@@ -3153,49 +3216,63 @@
       if (!isOpen) item.classList.add('open');
     }
 
-    // Optimized Scroll reveal with IntersectionObserver
-    const reveals = document.querySelectorAll('.reveal');
-    if (reveals.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            observer.unobserve(e.target); // Stop observing once revealed
-          }
+    // Defer non-critical enhancements until after page load
+    function initEnhancements() {
+      // Optimized Scroll reveal with IntersectionObserver
+      const reveals = document.querySelectorAll('.reveal');
+      if (reveals.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        }, { 
+          threshold: 0.1,
+          rootMargin: '50px'
         });
-      }, { 
-        threshold: 0.1,
-        rootMargin: '50px' // Start animation slightly before element enters viewport
-      });
 
       reveals.forEach(el => observer.observe(el));
     }
 
-    // Optimized ripple effect with passive listeners
-    const symptomCards = document.querySelectorAll('.symptom-card');
-    if (symptomCards.length > 0) {
-      const style = document.createElement('style');
-      style.textContent = `@keyframes ripple { to { transform:scale(4) translateZ(0); opacity:0; } }`;
-      document.head.appendChild(style);
+      // Optimized ripple effect with passive listeners
+      const symptomCards = document.querySelectorAll('.symptom-card');
+      if (symptomCards.length > 0) {
+        const style = document.createElement('style');
+        style.textContent = `@keyframes ripple { to { transform:scale(4) translateZ(0); opacity:0; } }`;
+        document.head.appendChild(style);
 
-      symptomCards.forEach(card => {
-        card.addEventListener('click', function (e) {
-          const ripple = document.createElement('span');
-          ripple.style.cssText = `
-            position:absolute; border-radius:50%;
-            width:60px; height:60px;
-            background:rgba(244,180,0,0.25);
-            transform:scale(0) translateZ(0);
-            animation:ripple 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            left:${e.offsetX - 30}px; top:${e.offsetY - 30}px;
-            pointer-events:none; will-change:transform, opacity;
-          `;
-          this.style.position = 'relative';
-          this.style.overflow = 'hidden';
-          this.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 500);
-        }, { passive: true });
-      });
+        symptomCards.forEach(card => {
+          card.addEventListener('click', function (e) {
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+              position:absolute; border-radius:50%;
+              width:60px; height:60px;
+              background:rgba(244,180,0,0.25);
+              transform:scale(0) translateZ(0);
+              animation:ripple 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              left:${e.offsetX - 30}px; top:${e.offsetY - 30}px;
+              pointer-events:none; will-change:transform, opacity;
+            `;
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 500);
+          }, { passive: true });
+        });
+      }
+    }
+
+    // Execute enhancements after critical content loads
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initEnhancements, { timeout: 2000 });
+    } else {
+      if (document.readyState === 'complete') {
+        initEnhancements();
+      } else {
+        window.addEventListener('load', initEnhancements);
+      }
     }
   </script>
 </body>
