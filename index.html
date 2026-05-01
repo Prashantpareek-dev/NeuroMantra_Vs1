@@ -1,0 +1,3044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuro Mantra – बच्चों के लिए आयुर्वेदिक सपोर्ट</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0B3C5D;
+      --secondary: #F4B400;
+      --bg: #FFFDF7;
+      --accent: #0e344d;
+      --text-dark: #1A1A1A;
+      --text-light: #555555;
+      --white: #FFFFFF;
+      --primary-light: rgba(11, 60, 93, 0.08);
+      --gold-light: rgba(244, 180, 0, 0.15);
+      --green-light: rgba(123, 160, 91, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Hind', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      max-width: 450px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── HERO / HOOK ── */
+    .hero {
+      background: var(--primary);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      /* min-height: 100vh; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-top-bar {
+      background: var(--secondary);
+      padding: 8px 20px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      animation: pulse-bar 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-bar {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.85;
+      }
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 22px 10px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .brand-name span {
+      color: var(--secondary);
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 2px;
+    }
+
+    /* HOOK TEXT AREA */
+    .hook-content {
+      padding: 24px 22px 0;
+      flex: 1;
+    }
+
+    .hook-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244, 180, 0, 0.15);
+      border: 1px solid rgba(244, 180, 0, 0.4);
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.4px;
+    }
+
+    .hook-headline {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .hook-headline .highlight {
+      color: var(--secondary);
+      font-style: italic;
+    }
+
+    /* SYMPTOM CARDS */
+    .symptom-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .symptom-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 3px solid var(--secondary);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      cursor: default;
+      animation: slide-in 0.5s ease backwards;
+    }
+
+    .symptom-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .symptom-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .symptom-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .symptom-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes slide-in {
+      from {
+        transform: translateX(-30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .symptom-card:active {
+      transform: scale(0.97);
+      background: rgba(244, 180, 0, 0.12);
+      border-left-color: var(--accent);
+    }
+
+    .symptom-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .symptom-text {
+      font-size: 15px;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .symptom-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2px;
+    }
+
+    /* HERO IMAGE STRIP */
+    .hero-img-strip {
+      margin: 0 22px 22px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      height: 190px;
+      clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
+    }
+
+    .hero-img-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+    }
+
+    .hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11, 60, 93, 0.75) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .hero-img-caption {
+      font-size: 13px;
+      color: var(--white);
+      background: var(--secondary);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    .hero-cta-btn {
+      display: block;
+      margin: 0 22px 30px;
+      background: var(--secondary);
+      color: var(--primary);
+      text-align: center;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 28px rgba(244, 180, 0, 0.5);
+    }
+
+    .hero-cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-cta-btn:hover::before,
+    .hero-cta-btn:active::before {
+      transform: translateX(100%);
+    }
+
+    .hero-cta-btn:active {
+      transform: scale(0.97);
+    }
+
+    .hero-cta-btn .btn-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    /* ── WAVE DIVIDER ── */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+      display: block;
+      overflow: hidden;
+    }
+
+    /* ── PAIN SECTION ── */
+    .section {
+      padding: 36px 22px;
+    }
+
+    .section-alt {
+      background: var(--primary);
+    }
+
+    .section-gold {
+      background: var(--secondary);
+    }
+
+    .section-green {
+      background: var(--accent);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label.dark {
+      color: var(--primary);
+    }
+
+    .section-label.light {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .section-title.white {
+      color: var(--white);
+    }
+
+    .section-title.gold {
+      color: var(--secondary);
+    }
+
+    /* ── PAIN HEXAGON GRID ── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .pain-hex-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 16px rgba(11, 60, 93, 0.08);
+      transition: all 0.3s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pain-hex-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .pain-hex-card:hover {
+      border-color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .pain-hex-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .pain-hex-card:active {
+      transform: scale(0.96);
+    }
+
+    .pain-hex-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 12px;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--white) 100%);
+      border-radius: 20px;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(244, 180, 0, 0.15),
+                  inset 0 -2px 8px rgba(244, 180, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .pain-hex-icon::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s;
+      opacity: 0;
+    }
+
+    .pain-hex-card:hover .pain-hex-icon::before {
+      opacity: 1;
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+
+    .pain-hex-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(11, 60, 93, 0.15));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .pain-hex-card:hover .pain-hex-icon {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 32px rgba(244, 180, 0, 0.25),
+                  inset 0 -3px 12px rgba(244, 180, 0, 0.15);
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--gold-light) 100%);
+    }
+
+    .pain-hex-card:hover .pain-hex-icon img {
+      transform: scale(1.1) rotate(2deg);
+      filter: drop-shadow(0 4px 8px rgba(11, 60, 93, 0.25)) brightness(1.05);
+    }
+
+    .pain-hex-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.35;
+    }
+
+    /* PAIN IMAGE — clip-path diagonal */
+    .pain-img-wrap {
+      position: relative;
+      margin-bottom: 24px;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 210px;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+      box-shadow: 0 10px 32px rgba(11, 60, 93, 0.18);
+    }
+
+    .pain-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pain-img-label {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 30px;
+    }
+
+    /* RESULT PILLS */
+    .result-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .result-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 100%);
+      border-radius: 16px;
+      padding: 14px 18px;
+      border: 2px solid rgba(11, 60, 93, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(11, 60, 93, 0.06);
+    }
+
+    .result-pill::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--secondary), var(--primary));
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+
+    .result-pill:hover {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--white) 100%);
+      border-color: var(--secondary);
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(244, 180, 0, 0.15);
+    }
+
+    .result-pill:hover::before {
+      transform: scaleY(1);
+    }
+
+    .result-pill:active {
+      transform: translateX(2px) scale(0.98);
+    }
+
+    .result-pill-icon {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(11, 60, 93, 0.2),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .result-pill-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(244, 180, 0, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .result-pill:hover .result-pill-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 8px 28px rgba(244, 180, 0, 0.3),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.15);
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    }
+
+    .result-pill:hover .result-pill-icon::after {
+      opacity: 1;
+    }
+
+    .result-pill-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* .result-pill:hover .result-pill-icon img {
+      transform: scale(1.05);
+      filter: brightness(0) invert(1) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+    } */
+
+    .result-pill-text {
+      font-size: 20px;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .product-section {
+      background: var(--primary);
+      padding: 0;
+      position: relative;
+    }
+
+    .product-top-wave {
+      background: var(--bg);
+      height: 40px;
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
+    .product-inner {
+      padding: 10px 22px 36px;
+    }
+
+    /* PRODUCT IMAGE — clip-path fancy */
+    .product-img-frame {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 28px;
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+
+    .product-img-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 180, 0, 0.2) 0%, transparent 70%);
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+    }
+
+    .product-img-clip {
+      width: 100%;
+      height: auto;
+      /* clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); */
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      margin: 10px;
+      background: var(--secondary);
+    }
+
+    .product-img-clip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+
+    .product-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      background: rgba(244, 180, 0, 0.15);
+      border: 1px solid var(--secondary);
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .badge:active {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+
+    /* HOW IT WORKS — 3 STEP */
+    .steps-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .steps-wrapper::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--secondary), var(--accent), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 20px;
+      padding: 0 0 28px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--secondary);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .step-item:active .step-num {
+      transform: scale(1.1);
+    }
+
+    .step-content {
+      flex: 1;
+      padding-top: 6px;
+    }
+
+    .step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    /* STEP IMAGE */
+    .step-img {
+      width: 100%;
+      height:25x0px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 12px;
+      clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+    }
+
+    .step-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85) saturate(0.8);
+    }
+
+    /* ── INGREDIENTS ── */
+    .ingredients-section {
+      background: var(--bg);
+    }
+
+    .ing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .ing-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(11, 60, 93, 0.1);
+      transition: all 0.3s ease;
+      cursor: default;
+      position: relative;
+    }
+
+    .ing-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, var(--gold-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .ing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(11, 60, 93, 0.16);
+    }
+
+    .ing-card:hover::before {
+      opacity: 1;
+    }
+
+    .ing-card:active {
+      transform: scale(0.96);
+    }
+
+    .ing-img {
+      height: 150px;
+      clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
+      overflow: hidden;
+    }
+
+    .ing-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ing-body {
+      padding: 12px 14px 14px;
+    }
+
+    .ing-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .ing-benefit {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    .ing-tag {
+      display: inline-block;
+      margin-top: 6px;
+      background: var(--green-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── BEFORE / AFTER ── */
+    .ba-section {
+      background: var(--primary);
+      padding: 36px 22px;
+    }
+
+    .ba-container {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 280px;
+      margin-top: 24px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .ba-side {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .ba-side.before {
+      left: 0;
+      right: 50%;
+    }
+
+    .ba-side.after {
+      left: 50%;
+      right: 0;
+    }
+
+    .ba-side img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ba-side.before img {
+      filter: grayscale(70%) brightness(0.65);
+    }
+
+    .ba-side.after img {
+      filter: brightness(0.75) saturate(1.2);
+    }
+
+    .ba-overlay-label {
+      position: relative;
+      z-index: 2;
+      margin: 10px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .ba-side.before .ba-overlay-label {
+      background: rgba(30, 30, 30, 0.8);
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .ba-side.after .ba-overlay-label {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--white);
+      z-index: 5;
+      box-shadow: 0 0 12px rgba(244, 180, 0, 0.8);
+    }
+
+    .ba-divider-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.4);
+      z-index: 6;
+    }
+
+    /* BA CHANGE POINTS */
+    .ba-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .ba-point {
+      border-radius: 12px;
+      padding: 14px;
+      transition: all 0.2s;
+    }
+
+    .ba-point.before-pt {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ba-point.after-pt {
+      background: rgba(244, 180, 0, 0.12);
+      border: 1px solid rgba(244, 180, 0, 0.3);
+    }
+
+    .ba-point:active {
+      transform: scale(0.96);
+    }
+
+    .ba-point-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .ba-point-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .ba-point.after-pt .ba-point-label {
+      color: var(--secondary);
+    }
+
+    .ba-point-text {
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    /* ── AYURVEDA SECTION ── */
+    .vata-section {
+      background: var(--bg);
+    }
+
+    .vata-visual {
+      margin: 20px 0;
+      border-radius: 18px;
+      overflow: hidden;
+      height: auto;
+      /* clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%); */
+      box-shadow: 0 8px 28px rgba(11, 60, 93, 0.14);
+    }
+
+    .vata-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .vata-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .vata-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 3px 14px rgba(11, 60, 93, 0.08);
+      border-left: 4px solid var(--accent);
+      transition: all 0.25s;
+    }
+
+    .vata-card:hover {
+      transform: translateX(4px);
+      border-left-color: var(--secondary);
+    }
+
+    .vata-card:active {
+      transform: scale(0.97);
+    }
+
+    .vata-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .vata-card-text {
+      flex: 1;
+    }
+
+    .vata-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .vata-card-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ── HOW TO USE ── */
+    .use-section {
+      background: var(--accent);
+      padding: 36px 22px;
+    }
+
+    .use-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 28px;
+      position: relative;
+      padding-left: 8px;
+    }
+
+    .use-timeline::before {
+      content: '';
+      position: absolute;
+      left: 31px;
+      top: 50px;
+      bottom: 50px;
+      width: 3px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--secondary) 20%,
+        var(--secondary) 80%,
+        transparent
+      );
+      border-radius: 3px;
+      opacity: 0.4;
+    }
+
+    .use-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .use-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .use-step:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 100%
+      );
+      border-color: rgba(244, 180, 0, 0.5);
+      transform: translateX(8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(244, 180, 0, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .use-step:hover::before {
+      transform: scaleX(1);
+    }
+
+    .use-step:active {
+      transform: translateX(4px) scale(0.98);
+    }
+
+    .use-step-num {
+      min-width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--secondary) 0%, #f5c84d 100%);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 900;
+      flex-shrink: 0;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(244, 180, 0, 0.4),
+                  inset 0 -2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.5);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2;
+    }
+
+    .use-step-num::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), transparent);
+      opacity: 0.3;
+      z-index: -1;
+      animation: pulse-ring-num 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring-num {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    .use-step:hover .use-step-num {
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 8px 28px rgba(244, 180, 0, 0.6),
+                  inset 0 -3px 10px rgba(0, 0, 0, 0.15),
+                  inset 0 3px 6px rgba(255, 255, 255, 0.6);
+    }
+
+    .use-step-text {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .use-step-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .use-step-title::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: rgba(244, 180, 0, 0.25);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--secondary);
+      border: 1px solid rgba(244, 180, 0, 0.4);
+    }
+
+    .use-step-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      padding-left: 28px;
+      font-weight: 500;
+    }
+
+    /* ── TRUST BADGES ── */
+    .trust-section {
+      background: var(--primary);
+      padding: 32px 22px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .trust-card {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.06) 100%
+      );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    .trust-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle,
+        rgba(244, 180, 0, 0.15) 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .trust-card:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(244, 180, 0, 0.2) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      border-color: rgba(244, 180, 0, 0.5);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(244, 180, 0, 0.3),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.15);
+    }
+
+    .trust-card:hover::before {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .trust-card:active {
+      transform: translateY(-2px) scale(0.98);
+    }
+
+    .trust-icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 140px;
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(
+        135deg,
+        rgba(244, 180, 0, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 100%
+      );
+      border-radius: 50%;
+      position: relative;
+      padding: 16px;
+      box-shadow: 0 8px 28px rgba(244, 180, 0, 0.25),
+                  inset 0 -3px 12px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.3);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .trust-icon::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        transparent,
+        var(--secondary),
+        transparent,
+        var(--secondary),
+        transparent
+      );
+      opacity: 0;
+      animation: rotate-border 3s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate-border {
+      0% {
+        transform: rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .trust-card:hover .trust-icon {
+      transform: scale(1.15) rotateY(180deg);
+      background: linear-gradient(
+        135deg,
+        var(--secondary) 0%,
+        rgba(244, 180, 0, 0.6) 100%
+      );
+      box-shadow: 0 12px 40px rgba(244, 180, 0, 0.5),
+                  inset 0 -4px 16px rgba(0, 0, 0, 0.15),
+                  inset 0 3px 6px rgba(255, 255, 255, 0.4);
+    }
+
+    .trust-card:hover .trust-icon::before {
+      opacity: 0.6;
+    }
+
+    .trust-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 24%;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .trust-card:hover .trust-icon img {
+      transform: scale(1.1);
+      filter: drop-shadow(0 6px 12px rgba(244, 180, 0, 0.4)) brightness(1.2);
+    }
+
+    .trust-label {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 5px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.3px;
+      transition: all 0.3s;
+    }
+
+    .trust-card:hover .trust-label {
+      color: var(--secondary);
+      transform: scale(1.05);
+    }
+
+    .trust-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .trust-card:hover .trust-sub {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ── OFFER SECTION ── */
+    .offer-section {
+      background: var(--secondary);
+      padding: 36px 22px;
+    }
+
+    .offer-title {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 26px;
+      color: var(--primary);
+      line-height: 1.4;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .offer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .offer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.2s;
+    }
+
+    .offer-item:active {
+      transform: scale(0.97);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .offer-check {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .offer-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .offer-sub {
+      font-size: 12px;
+      color: rgba(11, 60, 93, 0.65);
+      margin-top: 1px;
+    }
+
+    /* OFFER CTA */
+    .offer-cta {
+      display: block;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 17px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(11, 60, 93, 0.4);
+      transition: all 0.2s;
+    }
+
+    .offer-cta:active {
+      transform: scale(0.97);
+    }
+
+    .offer-cta .sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.65;
+      margin-top: 3px;
+    }
+
+    /* URGENCY BAR */
+    .urgency-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(11, 60, 93, 0.1);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .urgency-dot {
+      width: 8px;
+      height: 8px;
+      background: #e84040;
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    /* ── REVIEWS ── */
+    .reviews-section {
+      background: var(--bg);
+      padding: 36px 22px;
+    }
+
+    .review-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 4px 18px rgba(11, 60, 93, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .review-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(11, 60, 93, 0.13);
+    }
+
+    .review-card:active {
+      transform: scale(0.98);
+    }
+
+    .review-quote-icon {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 48px;
+      color: var(--gold-light);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .review-stars {
+      color: var(--secondary);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .review-city {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      background: var(--primary);
+      padding: 36px 22px 40px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-q {
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .faq-q:active {
+      background: rgba(244, 180, 0, 0.08);
+    }
+
+    .faq-q-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .faq-chevron {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(244, 180, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      font-size: 12px;
+      color: var(--secondary);
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-item.open {
+      border-color: rgba(244, 180, 0, 0.3);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+      padding: 0 18px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 0 18px 16px;
+    }
+
+    .faq-a-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.6;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, #0d4e79 100%);
+      padding: 40px 22px 50px;
+      text-align: center;
+    }
+
+    .final-cta-title {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 26px;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .final-cta-sub {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .final-btn {
+      display: block;
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 18px 22px;
+      border-radius: 50px;
+      font-size: 19px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 34px rgba(244, 180, 0, 0.5);
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .final-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 2.5s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      60% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .final-btn:active {
+      transform: scale(0.97);
+    }
+
+    .final-btn .sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-top: 3px;
+    }
+
+    .final-cod {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: #f0ede4;
+      padding: 24px 22px;
+      border-top: 2px solid rgba(11, 60, 93, 0.1);
+    }
+
+    .disclaimer-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .disclaimer-text {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ── FLOATING CTA BAR ── */
+    .floating-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 450px;
+      background: var(--primary);
+      padding: 12px 20px;
+      z-index: 999;
+      box-shadow: 0 -4px 24px rgba(11, 60, 93, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .floating-bar-text {
+      flex: 1;
+    }
+
+    .floating-bar-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .floating-bar-cta {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      font-family: 'Hind', sans-serif;
+    }
+
+    .floating-bar-cta:active {
+      transform: scale(0.96);
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* BOTTOM PADDING for floating bar */
+    .page-end-spacer {
+      height: 70px;
+    }
+
+    /* SEPARATOR */
+    .wave-sep {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    /* ORDER FORM SECTION */
+    .order-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%);
+      padding: 50px 22px;
+      margin: 30px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(244, 180, 0, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .order-section::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(11, 60, 93, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .order-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-label-line {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    }
+
+    .section-label span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 15px;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .order-product-showcase {
+      text-align: center;
+      margin: 30px 0;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 30px rgba(11, 60, 93, 0.1);
+    }
+
+    .order-product-img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 15px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .order-product-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .order-product-tagline {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 15px;
+    }
+
+    .order-benefits-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+      text-align: left;
+      max-width: 320px;
+      margin: 15px auto 0;
+    }
+
+    .order-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-dark);
+    }
+
+    .order-benefit-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .order-form {
+      max-width: 380px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(11, 60, 93, 0.12);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-header-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .form-header-desc {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .form-label-icon {
+      font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 16px 18px;
+      font-size: 15px;
+      font-family: 'Hind', sans-serif;
+      border: 2px solid #e8e8e8;
+      border-radius: 14px;
+      background: var(--bg);
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--secondary);
+      background: var(--white);
+      box-shadow: 0 0 0 4px var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .form-group input::placeholder {
+      color: #aaa;
+    }
+
+    .order-trust-mini {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge-mini {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--green-light);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Hind', sans-serif;
+      background: linear-gradient(135deg, var(--secondary) 0%, #f5c542 100%);
+      color: var(--primary);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(244, 180, 0, 0.45);
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .submit-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(244, 180, 0, 0.6);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════ HERO / HOOK ═══════════════════════════════ -->
+  <div class="hero">
+    <img src="./Image/Hero.png" style="width: 450px; height: auto; object-fit: cover;" alt="">
+  </div>
+
+  <!-- ═══════════════════════════════ PAIN / CAUSES ═══════════════════════════════ -->
+  <div class="section" style="background: var(--bg);">
+    <div class="section-label">⚠️ समस्या की जड़</div>
+    <h2 class="section-title">इन संकेतों के पीछे कारण अलग-अलग हो सकते हैं</h2>
+
+    <div class="pain-grid reveal">
+      <div class="pain-hex-card">
+        <span class="pain-hex-icon"> <img src="./Image/1.png" alt=""> </span>
+        <div class="pain-hex-label">मांसपेशियों में stiffness (जकड़न)</div>
+      </div>
+      <div class="pain-hex-card">
+        <span class="pain-hex-icon"> <img src="./Image/2.png" alt=""> </span>
+        <div class="pain-hex-label">Nervous System का imbalance</div>
+      </div>
+      <div class="pain-hex-card">
+        <span class="pain-hex-icon"> <img src="./Image/3.png" alt=""> </span>
+        <div class="pain-hex-label">Birth या early development से जुड़े factors</div>
+      </div>
+      <div class="pain-hex-card">
+        <span class="pain-hex-icon"> <img src="./Image/4.png" alt=""> </span>
+        <div class="pain-hex-label">Body coordination का develop न होना</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:24px; color:var(--primary);">जब ये issues रहते हैं</div>
+
+    <div class="result-pills reveal">
+      <div class="result-pill">
+        <div class="result-pill-icon"><img src="./Image/5.png" alt=""></div>
+        <div class="result-pill-text">Balance बनाने में struggle करता है</div>
+      </div>
+      <div class="result-pill">
+        <div class="result-pill-icon"><img src="./Image/6.png" alt=""></div>
+        <div class="result-pill-text">Walking pattern abnormal हो सकता है</div>
+      </div>
+      <div class="result-pill">
+        <div class="result-pill-icon"><img src="./Image/7.png" alt=""></div>
+        <div class="result-pill-text">Daily activities मुश्किल हो सकती हैं (बैठना, पकड़ना, खाना)</div>
+      </div>
+    </div>
+
+    <div style="background: var(--primary); border-radius:14px; padding:16px; margin-top:20px;" class="reveal">
+      <p style="font-size:15px; color:var(--white); line-height:1.6; font-weight:500;">
+        👉 सही समय पर assessment + guidance न मिले तो challenges बढ़ सकते हैं।
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ PRODUCT SECTION ═══════════════════════════════ -->
+  <div class="product-section"> 
+    <div class="product-top-wave"></div>
+    <div class="product-inner">
+      <div class="section-label light">🌿 समाधान</div>
+      <h2 class="section-title gold">Neuro Mantra</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.75); margin-bottom:24px; line-height:1.6;">
+        एक आयुर्वेदिक सपोर्ट सिस्टम — बच्चों के nervous system और muscle balance को support करने के लिए बनाया गया है।
+      </p>
+
+      <div class="product-img-frame">
+        <div class="product-img-bg"></div>
+        <div class="product-img-clip">
+          <img src="./Image/Intro.png" alt="Neuro Mantra Product">
+        </div>
+      </div>
+
+      <div class="product-badges">
+        <div class="badge">✅ Ayurvedic</div>
+        <div class="badge">✅ GMP Certified</div>
+        <div class="badge">✅ Quality Tested</div>
+        <div class="badge">✅ COD Available</div>
+      </div>
+
+      <p style="font-size:15px; color:rgba(255,255,255,0.7); text-align:center; margin-bottom:24px; line-height:1.6;">
+        यह एक <strong style="color:var(--secondary);">holistic approach</strong> देता है जिसमें Ayurvedic formulation,
+        Personalized guidance, और Diet & routine support शामिल है।
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ HOW IT WORKS ═══════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-label light">⚙️ Mechanism</div>
+    <h2 class="section-title white">Neuro Mantra 3 स्तर पर काम करता है</h2>
+
+    <div class="steps-wrapper reveal">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Nervous System Support</div>
+          <div class="step-desc">नसों के कार्य को संतुलित रखने में सहायक</div>
+          <div class="step-img">
+            <img src="./Image/11.png" alt="Nervous System Support">
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Muscle Relaxation Support</div>
+          <div class="step-desc">Stiffness और tightness को manage करने में मदद</div>
+          <div class="step-img">
+            <img src="./Image/12.png" alt="Muscle Relaxation">
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Developmental Support</div>
+          <div class="step-desc">Body coordination और response को बेहतर करने में सहयोग</div>
+          <div class="step-img">
+            <img src="./Image/13.png" alt="Development Support">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="background: rgba(244,180,0,0.1); border:1px solid rgba(244,180,0,0.3); border-radius:14px; padding:14px 16px; margin-top:6px;">
+      <p style="font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;">
+        👉 यह एक supportive approach है—हर बच्चा अलग होता है, इसलिए results vary कर सकते हैं।
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ BEFORE / AFTER ═══════════════════════════════ -->
+  <div class="ba-section">
+    <div class="section-label light">📊 फर्क देखें</div>
+    <h2 class="section-title white">Before vs After Neuro Mantra</h2>
+
+    <div class="ba-container reveal">
+      <div class="ba-side before">
+        <img src="./Image/product.png" alt="Before Neuro Mantra">
+        <div class="ba-overlay-label">❌ Before</div>
+      </div>
+
+      <div class="ba-divider">
+        <div class="ba-divider-circle">↔</div>
+      </div>
+
+      <div class="ba-side after">
+        <img src="./Image/product.png" alt="After Neuro Mantra">
+        <div class="ba-overlay-label">✅ After</div>
+      </div>
+    </div>
+
+    <div class="ba-points reveal">
+      <div class="ba-point before-pt">
+        <span class="ba-point-icon">😓</span>
+        <div class="ba-point-label">Before</div>
+        <div class="ba-point-text">चलने में पैर cross, balance की समस्या, daily activities में कठिनाई</div>
+      </div>
+      <div class="ba-point after-pt">
+        <span class="ba-point-icon">😊</span>
+        <div class="ba-point-label">After</div>
+        <div class="ba-point-text">धीरे-धीरे improvement, better coordination, बेहतर response</div>
+      </div>
+
+      <div class="ba-point before-pt">
+        <span class="ba-point-icon">😰</span>
+        <div class="ba-point-label">Before</div>
+        <div class="ba-point-text">Muscle stiffness, गर्दन control की कठिनाई, लार टपकना</div>
+      </div>
+      <div class="ba-point after-pt">
+        <span class="ba-point-icon">💪</span>
+        <div class="ba-point-label">After</div>
+        <div class="ba-point-text">Muscle relaxation support, बेहतर control, Personalized guidance से फर्क</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ AYURVEDA SECTION ═══════════════════════════════ -->
+  <div class="section vata-section">
+    <div class="section-label">👨‍⚕️ आयुर्वेद का नजरिया</div>
+    <h2 class="section-title">Ayurveda क्यों Recommend करता है?</h2>
+
+    <div class="vata-visual reveal">
+      <img src="./Image/Ayurved.png" alt="Ayurveda Perspective">
+    </div>
+
+    <div class="vata-info-cards reveal">
+      <div class="vata-card">
+        <div class="vata-card-icon">🌬️</div>
+        <div class="vata-card-text">
+          <div class="vata-card-title">वात imbalance का असर</div>
+          <div class="vata-card-desc">शरीर में वात imbalance movement और control को प्रभावित कर सकता है</div>
+        </div>
+      </div>
+      <div class="vata-card">
+        <div class="vata-card-icon">🌿</div>
+        <div class="vata-card-text">
+          <div class="vata-card-title">Herbs + Routine से Balance</div>
+          <div class="vata-card-desc">सही herbs + routine से balance को support किया जा सकता है</div>
+        </div>
+      </div>
+      <div class="vata-card">
+        <div class="vata-card-icon">🏥</div>
+        <div class="vata-card-text">
+          <div class="vata-card-title">Expert Recommendation</div>
+          <div class="vata-card-desc">कई Ayurvedic experts supportive care + lifestyle + diet को साथ में recommend करते
+            हैं</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ INGREDIENTS ═══════════════════════════════ -->
+  <div class="section ingredients-section">
+    <div class="section-label">🌿 Key Ingredients</div>
+    <h2 class="section-title">पारंपरिक आयुर्वेदिक जड़ी-बूटियाँ</h2>
+
+    <div class="ing-grid reveal">
+      <div class="ing-card">
+        <div class="ing-img">
+          <img src="./Image/14.png" alt="Ashwagandha">
+        </div>
+        <div class="ing-body">
+          <div class="ing-name">अश्वगंधा</div>
+          <div class="ing-benefit">Nervous system support करता है</div>
+          <div class="ing-tag">Ashwagandha</div>
+        </div>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-img">
+          <img src="./Image/15.png" alt="Brahmi">
+        </div>
+        <div class="ing-body">
+          <div class="ing-name">ब्राह्मी</div>
+          <div class="ing-benefit">Brain function support करती है</div>
+          <div class="ing-tag">Brahmi</div>
+        </div>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-img">
+          <img src="./Image/16.png" alt="Shankhpushpi">
+        </div>
+        <div class="ing-body">
+          <div class="ing-name">शंखपुष्पी</div>
+          <div class="ing-benefit">Cognitive support में सहायक</div>
+          <div class="ing-tag">Shankhpushpi</div>
+        </div>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-img">
+          <img src="./Image/17.png" alt="Jyotishmati">
+        </div>
+        <div class="ing-body">
+          <div class="ing-name">ज्योतिष्मती</div>
+          <div class="ing-benefit">Neurological support देती है</div>
+          <div class="ing-tag">Jyotishmati</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:var(--text-light); text-align:center; margin-top:14px; line-height:1.6;">
+      👉 सभी ingredients पारंपरिक आयुर्वेदिक सिद्धांतों पर आधारित हैं
+    </p>
+  </div>
+
+  <!-- ═══════════════════════════════ HOW TO USE ═══════════════════════════════ -->
+  <div class="use-section">
+    <div class="section-label" style="color:rgba(255,255,255,0.7);">🕒 उपयोग का तरीका</div>
+    <h2 class="section-title white">कैसे इस्तेमाल करें?</h2>
+
+    <div class="use-timeline reveal">
+      <div class="use-step">
+        <div class="use-step-num">⏰</div>
+        <div class="use-step-text">
+          <div class="use-step-title">दिन में 2 बार</div>
+          <div class="use-step-desc">Morning + Evening — पानी के साथ लें</div>
+        </div>
+      </div>
+      <div class="use-step">
+        <div class="use-step-num">📅</div>
+        <div class="use-step-text">
+          <div class="use-step-title">Minimum 2–3 महीने</div>
+          <div class="use-step-desc">As per guidance — consistent use जरूरी है</div>
+        </div>
+      </div>
+      <div class="use-step">
+        <div class="use-step-num">🥗</div>
+        <div class="use-step-text">
+          <div class="use-step-title">Diet Plan + Routine Follow करें</div>
+          <div class="use-step-desc">साथ में personalized guidance follow करना जरूरी है</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ TRUST BADGES ═══════════════════════════════ -->
+  <div class="trust-section">
+    <div class="section-label light">🛡️ भरोसेमंद</div>
+    <h2 class="section-title white">Certified & Trusted</h2>
+
+    <div class="trust-grid reveal">
+      <div class="trust-card">
+        <span class="trust-icon"><img src="./Image/18.png" alt=""></span>
+        <div class="trust-label">Ayurvedic</div>
+        <div class="trust-sub">Formulation</div>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"><img src="./Image/19.png" alt=""></span>
+        <div class="trust-label">Quality Tested</div>
+        <div class="trust-sub">Lab verified</div>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"><img src="./Image/20.png" alt=""></span>
+        <div class="trust-label">GMP Compliant</div>
+        <div class="trust-sub">Manufacturing</div>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon"><img src="./Image/21.png" alt=""></span>
+        <div class="trust-label">Expert Guided</div>
+        <div class="trust-sub">Support system</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ OFFER SECTION ═══════════════════════════════ -->
+  <div id="offer" class="offer-section">
+    <div class="section-label dark">🎁 Special Offer</div>
+    <h2 class="offer-title">अभी आपको मिलता है — बिल्कुल Free!</h2>
+
+    <div class="offer-list reveal">
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div>
+          <div class="offer-text">Free 1-to-1 Ayurvedic Expert Consultation</div>
+          <div class="offer-sub">आपके बच्चे की condition का basic assessment</div>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div>
+          <div class="offer-text">Free Personalized Diet Chart</div>
+          <div class="offer-sub">बच्चे के लिए custom diet plan</div>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div>
+          <div class="offer-text">Free Delivery — पूरे India में</div>
+          <div class="offer-sub">घर तक पहुँचाएंगे, कोई extra charge नहीं</div>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div>
+          <div class="offer-text">Complete Step-by-Step Guidance</div>
+          <div class="offer-sub">Dedicated customer support team</div>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div>
+          <div class="offer-text">COD — Cash on Delivery Available</div>
+          <div class="offer-sub">पहले product पाएं, फिर payment करें</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#orderSection" class="offer-cta">
+      🌿 अभी Free Guidance लें
+      <span class="sub">Click करें → Expert से बात करें</span>
+    </a>
+
+    <div class="urgency-bar">
+      <div class="urgency-dot"></div>
+      Limited consultation slots available
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ ORDER FORM SECTION ═══════════════════════════════ -->
+  <html>
+
+  <head>
+
+    <!-- ORDER FORM SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function submitOrder(event) {
+        // Placeholder function for order submission
+        console.log('Order submitted');
+      }
+
+      function showThankYou(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const submitBtn = form.querySelector('.submit-btn');
+
+        const formData = {};
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          if (input.name) {
+            formData[input.name] = input.value.trim();
+          }
+        });
+
+        const name = formData['name'];
+        const phone = formData['phone'];
+        const phoneRegex = /^[6-9]\d{9}$/;
+
+        if (!phoneRegex.test(phone)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'गलत मोबाइल नंबर',
+            text: 'कृपया सही 10 अंकों का मोबाइल नंबर डालें (6-9 से शुरू)।',
+          });
+          document.getElementById('userPhone').focus();
+          return false;
+        }
+
+        if (!name || !phone || phone.length !== 10) {
+          Swal.fire({
+            icon: 'error',
+            title: 'गलत जानकारी',
+            text: 'कृपया सही नाम और फोन नंबर भरें!',
+          });
+          return false;
+        }
+
+        localStorage.setItem('customerOrder', JSON.stringify({
+          ...formData,
+          timestamp: new Date().toLocaleString('hi-IN')
+        }));
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'प्रोसेसिंग हो रही है...';
+        }
+
+        fetch('https://kidsvedaayurveda.com/demo.php', {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.status === 200) {
+              return fetch('https://kidsvedaayurveda.com/wp-json/script-google/v1/submit/VQLIT08ntKpg', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+              })
+                .then(() => {
+                  submitOrder(event);
+                  window.location.href = 'ThankYou.html';
+                });
+            }
+
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = '🛒 अभी Order Place करें — FREE Delivery';
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: '🚫 Duplicate Order Found – Try Again',
+              text: '⚠️ ये ऑर्डर पहले ही किया जा चुका है',
+            });
+          })
+          .catch(error => {
+            submitOrder(event)
+            console.error('Error in order request:', error);
+
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = '🛒 अभी Order Place करें — FREE Delivery';
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: 'नेटवर्क एरर',
+              text: 'नेटवर्क में समस्या आ रही है। कृपया बाद में कोशिश करें।',
+            });
+          });
+
+        return false;
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <section class="order-section" id="orderSection">
+      <!-- <div class="section-label">
+        <div class="section-label-line"></div>
+        <span>अभी Order करें</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="section-title">👉 अभी ऑर्डर करें</h2>
+      <p class="section-sub">बच्चे के behaviour में बदलाव की शुरुआत करें — Free Expert Guidance के साथ</p> -->
+
+      <!-- Product Showcase -->
+      <!-- <div class="order-product-showcase reveal">
+        <img src="./Image/Product.png" alt="Neuro Mantra" class="order-product-img">
+        <div class="order-product-name">Neuro Mantra</div>
+        <div class="order-product-tagline">Ayurvedic Neurological Support for Kids</div>
+        
+        <div class="order-benefits-mini">
+          <div class="order-benefit-item">
+            <span class="order-benefit-icon">✓</span>
+            <span>Nervous System Support</span>
+          </div>
+          <div class="order-benefit-item">
+            <span class="order-benefit-icon">✓</span>
+            <span>Muscle Coordination Improvement</span>
+          </div>
+          <div class="order-benefit-item">
+            <span class="order-benefit-icon">✓</span>
+            <span>100% Natural Ayurvedic Formula</span>
+          </div>
+          <div class="order-benefit-item">
+            <span class="order-benefit-icon">✓</span>
+            <span>Expert Guided Support System</span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Order Form -->
+      <form class="order-form reveal" id="orderForm" onsubmit="showThankYou(event)">
+        <div class="form-header">
+          <div class="form-header-title">📝 अपनी जानकारी भरें</div>
+          <div class="form-header-desc">हम आपसे जल्द ही संपर्क करेंगे</div>
+        </div>
+
+        <input type="hidden" name="form-key" value="kidsveda-order-form">
+        
+        <div class="form-group">
+          <label>
+            <span class="form-label-icon">👤</span>
+            आपका नाम
+          </label>
+          <input type="text" name="name" id="userName" placeholder="अपना पूरा नाम लिखें" required>
+        </div>
+        
+        <div class="form-group">
+          <label>
+            <span class="form-label-icon">📱</span>
+            मोबाइल नंबर
+          </label>
+          <input type="tel" name="phone" id="userPhone" placeholder="10-digit mobile number" maxlength="10" pattern="[6-9][0-9]{9}" required>
+        </div>
+
+        <div class="order-trust-mini">
+          <div class="trust-badge-mini">
+            <span>🔒</span>
+            100% Secure
+          </div>
+          <div class="trust-badge-mini">
+            <span>🚚</span>
+            Free Delivery
+          </div>
+          <div class="trust-badge-mini">
+            <span>💰</span>
+            COD Available
+          </div>
+        </div>
+        
+        <button type="submit" class="submit-btn">🛒 अभी Order करें — Free Delivery</button>
+        
+        <div style="text-align: center; margin-top: 15px; font-size: 12px; color: var(--text-light);">
+          ✓ Free Expert Consultation | ✓ Personalized Diet Chart | ✓ Step-by-Step Guidance
+        </div>
+      </form>
+    </section>
+  </body>
+
+  </html>
+
+  <!-- ═══════════════════════════════ REVIEWS ═══════════════════════════════ -->
+  <div class="reviews-section">
+    <div class="section-label">⭐ Real Results</div>
+    <h2 class="section-title">माता-पिता की जुबानी</h2>
+
+    <div class="review-cards reveal">
+      <div class="review-card">
+        <div class="review-quote-icon">"</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">पहले मेरे बेटे को चलने में बहुत दिक्कत थी… अब धीरे-धीरे improvement दिख रहा है।</div>
+        <div class="review-author">
+          <div class="review-avatar">N</div>
+          <div>
+            <div class="review-name">Neha</div>
+            <div class="review-city">📍 Jaipur</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote-icon">"</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">हमें सही guidance नहीं मिल रही थी… यहाँ से clear direction मिला।</div>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Ravi</div>
+            <div class="review-city">📍 Delhi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-quote-icon">"</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Consistency से फर्क दिखता है… support team बहुत helpful है।</div>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div>
+            <div class="review-name">Pooja</div>
+            <div class="review-city">📍 Indore</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
+  <div class="faq-section">
+    <div class="section-label light">❓ FAQ</div>
+    <h2 class="section-title white">अक्सर पूछे जाने वाले सवाल</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">क्या यह cure है?</span>
+          <div class="faq-chevron">▾</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-text">नहीं, यह एक supportive Ayurvedic approach है। यह product किसी disease का cure या
+            replacement नहीं है।</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">कितने समय में फर्क दिखेगा?</span>
+          <div class="faq-chevron">▾</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-text">हर बच्चे के case पर depend करता है। Results व्यक्ति-विशेष पर depend करते हैं।</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">क्या doctor consultation जरूरी है?</span>
+          <div class="faq-chevron">▾</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-text">हाँ, सही guidance के लिए consultation helpful है। किसी भी medical condition में doctor
+            की सलाह लेना जरूरी है।</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">क्या side effects हैं?</span>
+          <div class="faq-chevron">▾</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-text">Generally safe माना जाता है, फिर भी expert guidance जरूरी है।</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">क्या therapy के साथ ले सकते हैं?</span>
+          <div class="faq-chevron">▾</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-text">हाँ, अक्सर supportive रूप में use किया जाता है। Doctor guidance जरूर लें।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ FINAL CTA ═══════════════════════════════ -->
+  <div class="final-cta">
+    <div class="section-label" style="color:var(--secondary); justify-content:center;">🔥 अभी Action लें</div>
+    <h2 class="final-cta-title">अपने बच्चे के लिए सही next step जानें</h2>
+    <p class="final-cta-sub">
+      Free consultation + Free delivery + Free diet chart — सब एक जगह। COD भी available है।
+    </p>
+
+    <a href="#orderSection" class="final-btn">
+      👉 अभी Free Consultation लें
+      <span class="sub">Limited Slots • COD Available</span>
+    </a>
+
+    <div class="final-cod">
+      🚚 Free Delivery &nbsp;|&nbsp; 💰 COD Available
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ DISCLAIMER ═══════════════════════════════ -->
+  <div class="disclaimer">
+    <div class="disclaimer-title">⚠️ Disclaimer</div>
+    <div class="disclaimer-text">
+      यह product किसी disease का cure या replacement नहीं है। Results व्यक्ति-विशेष पर depend करते हैं। किसी भी medical
+      condition में doctor की सलाह लेना जरूरी है। यह केवल supportive Ayurvedic guidance के लिए है।
+    </div>
+  </div>
+
+  <div class="page-end-spacer"></div>
+
+  <!-- ═══════════════════════════════ FLOATING BAR ═══════════════════════════════ -->
+  <div class="floating-bar">
+    <div class="floating-bar-text">
+      <div style="font-size:14px; font-weight:700; color:var(--white);">Neuro Mantra</div>
+      <div class="floating-bar-label">Free Delivery + COD Available</div>
+    </div>
+    <button class="floating-bar-cta" onclick="document.getElementById('orderSection').scrollIntoView({behavior:'smooth'})">
+      Free Guidance 👉
+    </button>
+  </div>
+
+  <script>
+    // FAQ toggle
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Symptom card ripple
+    document.querySelectorAll('.symptom-card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+        position:absolute; border-radius:50%;
+        width:60px; height:60px;
+        background:rgba(244,180,0,0.25);
+        transform:scale(0); animation:ripple 0.5s linear;
+        left:${e.offsetX - 30}px; top:${e.offsetY - 30}px;
+        pointer-events:none;
+      `;
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+      });
+    });
+
+    // CSS for ripple
+    const style = document.createElement('style');
+    style.textContent = `@keyframes ripple { to { transform:scale(4); opacity:0; } }`;
+    document.head.appendChild(style);
+  </script>
+</body>
+
+</html>
