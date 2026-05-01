@@ -1621,14 +1621,16 @@
     }
 
     .review-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 4px 18px rgba(11, 60, 93, 0.08);
+      background: linear-gradient(135deg, var(--white) 0%, rgba(244, 180, 0, 0.03) 100%);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(11, 60, 93, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.8);
       position: relative;
       overflow: hidden;
-      transition: all 0.25s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: default;
+      border: 2px solid rgba(244, 180, 0, 0.1);
     }
 
     .review-card::before {
@@ -1637,54 +1639,88 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
+      background-size: 200% 100%;
+      animation: gradient-shift 3s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
     }
 
     .review-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(11, 60, 93, 0.13);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(244, 180, 0, 0.2),
+                  inset 0 2px 4px rgba(255, 255, 255, 1);
+      border-color: var(--secondary);
     }
 
     .review-card:active {
-      transform: scale(0.98);
+      transform: translateY(-2px) scale(0.99);
     }
 
     .review-quote-icon {
       position: absolute;
-      top: 14px;
-      right: 16px;
-      font-size: 48px;
+      top: 18px;
+      right: 20px;
+      font-size: 56px;
       color: var(--gold-light);
       line-height: 1;
       font-family: Georgia, serif;
+      opacity: 0.4;
+      transition: all 0.4s;
+    }
+
+    .review-card:hover .review-quote-icon {
+      opacity: 0.7;
+      transform: scale(1.1) rotate(-5deg);
+      color: var(--secondary);
     }
 
     .review-stars {
       color: var(--secondary);
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 18px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 4px rgba(244, 180, 0, 0.3);
+      transition: all 0.3s;
+    }
+
+    .review-card:hover .review-stars {
+      transform: scale(1.1);
+      letter-spacing: 3px;
     }
 
     .review-text {
       font-size: 15px;
       color: var(--text-dark);
-      line-height: 1.6;
+      line-height: 1.7;
       font-style: italic;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      position: relative;
+      padding-left: 12px;
+      border-left: 3px solid var(--gold-light);
     }
 
     .review-author {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      padding-top: 4px;
     }
 
     .review-avatar {
-      width: 38px;
-      height: 38px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1692,17 +1728,99 @@
       font-size: 15px;
       font-weight: 700;
       flex-shrink: 0;
+      position: relative;
+      padding: 4px;
+      overflow: visible;
+      box-shadow: 0 8px 24px rgba(11, 60, 93, 0.25),
+                  inset 0 2px 4px rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .review-avatar::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        var(--secondary),
+        var(--primary),
+        var(--secondary),
+        var(--primary),
+        var(--secondary)
+      );
+      z-index: -1;
+      opacity: 0.4;
+      animation: rotate-avatar 4s linear infinite;
+    }
+
+    @keyframes rotate-avatar {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .review-avatar::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(244, 180, 0, 0.3) 0%,
+        transparent 70%
+      );
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .review-card:hover .review-avatar {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 12px 32px rgba(244, 180, 0, 0.4),
+                  inset 0 3px 6px rgba(255, 255, 255, 0.3);
+    }
+
+    .review-card:hover .review-avatar::after {
+      opacity: 1;
+    }
+
+    .review-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .review-card:hover .review-avatar img {
+      transform: scale(1.05);
+      border-color: var(--secondary);
+      box-shadow: 0 6px 16px rgba(244, 180, 0, 0.3);
     }
 
     .review-name {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 800;
       color: var(--primary);
+      letter-spacing: 0.3px;
+      transition: all 0.3s;
+    }
+
+    .review-card:hover .review-name {
+      color: var(--accent);
     }
 
     .review-city {
       font-size: 12px;
       color: var(--text-light);
+      font-weight: 500;
+      margin-top: 2px;
     }
 
     /* ── FAQ ── */
@@ -2400,7 +2518,7 @@
 
     <div class="ba-container reveal">
       <div class="ba-side before">
-        <img src="./Image/product.png" alt="Before Neuro Mantra">
+        <img src="./Image/22.png" alt="Before Neuro Mantra">
         <div class="ba-overlay-label">❌ Before</div>
       </div>
 
@@ -2409,7 +2527,7 @@
       </div>
 
       <div class="ba-side after">
-        <img src="./Image/product.png" alt="After Neuro Mantra">
+        <img src="./Image/23.png" alt="After Neuro Mantra">
         <div class="ba-overlay-label">✅ After</div>
       </div>
     </div>
@@ -2857,9 +2975,9 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">पहले मेरे बेटे को चलने में बहुत दिक्कत थी… अब धीरे-धीरे improvement दिख रहा है।</div>
         <div class="review-author">
-          <div class="review-avatar">N</div>
+          <div class="review-avatar"><img src="./Image/Client1.png" alt=""></div>
           <div>
-            <div class="review-name">Neha</div>
+            <div class="review-name">Sunil</div>
             <div class="review-city">📍 Jaipur</div>
           </div>
         </div>
@@ -2870,7 +2988,7 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">हमें सही guidance नहीं मिल रही थी… यहाँ से clear direction मिला।</div>
         <div class="review-author">
-          <div class="review-avatar">R</div>
+          <div class="review-avatar"><img src="./Image/Client2.png" alt=""></div>
           <div>
             <div class="review-name">Ravi</div>
             <div class="review-city">📍 Delhi</div>
@@ -2883,7 +3001,7 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">Consistency से फर्क दिखता है… support team बहुत helpful है।</div>
         <div class="review-author">
-          <div class="review-avatar">P</div>
+          <div class="review-avatar"><img src="./Image/Client3.png" alt=""></div>
           <div>
             <div class="review-name">Pooja</div>
             <div class="review-city">📍 Indore</div>
@@ -2901,12 +3019,11 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">क्या यह cure है?</span>
+          <span class="faq-q-text">क्या यह Safe है?</span>
           <div class="faq-chevron">▾</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-text">नहीं, यह एक supportive Ayurvedic approach है। यह product किसी disease का cure या
-            replacement नहीं है।</div>
+          <div class="faq-a-text">हाँ, यह एक supportive Ayurvedic approach है।</div>
         </div>
       </div>
 
@@ -2937,7 +3054,7 @@
           <div class="faq-chevron">▾</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-text">Generally safe माना जाता है, फिर भी expert guidance जरूरी है।</div>
+          <div class="faq-a-text">हाँ, यह एक ayurvedic approach है और इसमें कोई side effects नहीं हैं।</div>
         </div>
       </div>
 
