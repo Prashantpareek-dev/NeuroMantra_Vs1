@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neuro Mantra - आयुर्वेदिक सपोर्ट बच्चों के विकास के लिए">
   <title>Neuro Mantra – बच्चों के लिए आयुर्वेदिक सपोर्ट</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
     rel="stylesheet">
+  <link rel="preload" as="image" href="./Image/Hero.avif">
   <style>
     :root {
       --primary: #0B3C5D;
@@ -30,6 +34,8 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
@@ -42,13 +48,22 @@
       position: relative;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .reveal {
+      will-change: transform, opacity;
+    }
+
     /* ── HERO / HOOK ── */
     .hero {
       background: var(--primary);
       padding: 0;
       position: relative;
       overflow: hidden;
-      /* min-height: 100vh; */
       display: flex;
       flex-direction: column;
     }
@@ -165,9 +180,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
       cursor: default;
       animation: slide-in 0.5s ease backwards;
+      will-change: transform;
     }
 
     .symptom-card:nth-child(1) {
@@ -188,18 +204,18 @@
 
     @keyframes slide-in {
       from {
-        transform: translateX(-30px);
+        transform: translateX(-30px) translateZ(0);
         opacity: 0;
       }
 
       to {
-        transform: translateX(0);
+        transform: translateX(0) translateZ(0);
         opacity: 1;
       }
     }
 
     .symptom-card:active {
-      transform: scale(0.97);
+      transform: scale(0.97) translateZ(0);
       background: rgba(244, 180, 0, 0.12);
       border-left-color: var(--accent);
     }
@@ -271,8 +287,9 @@
       text-decoration: none;
       position: relative;
       overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 6px 28px rgba(244, 180, 0, 0.5);
+      will-change: transform;
     }
 
     .hero-cta-btn::before {
@@ -290,7 +307,7 @@
     }
 
     .hero-cta-btn:active {
-      transform: scale(0.97);
+      transform: scale(0.97) translateZ(0);
     }
 
     .hero-cta-btn .btn-sub {
@@ -312,6 +329,7 @@
     /* ── PAIN SECTION ── */
     .section {
       padding: 36px 22px;
+      contain: layout style;
     }
 
     .section-alt {
@@ -385,10 +403,13 @@
       text-align: center;
       border: 2px solid transparent;
       box-shadow: 0 4px 16px rgba(11, 60, 93, 0.08);
-      transition: all 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
       cursor: default;
       position: relative;
       overflow: hidden;
+      will-change: transform;
     }
 
     .pain-hex-card::after {
@@ -473,7 +494,7 @@
     }
 
     .pain-hex-card:hover .pain-hex-icon {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-5px) scale(1.05) translateZ(0);
       box-shadow: 0 12px 32px rgba(244, 180, 0, 0.25),
                   inset 0 -3px 12px rgba(244, 180, 0, 0.15);
       background: linear-gradient(135deg, var(--secondary) 0%, var(--gold-light) 100%);
@@ -820,9 +841,11 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(11, 60, 93, 0.1);
-      transition: all 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s ease;
       cursor: default;
       position: relative;
+      will-change: transform;
     }
 
     .ing-card::before {
@@ -835,7 +858,7 @@
     }
 
     .ing-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-4px) translateZ(0);
       box-shadow: 0 10px 32px rgba(11, 60, 93, 0.16);
     }
 
@@ -1168,9 +1191,13 @@
       border: 2px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
                   inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease,
+                  border-color 0.4s ease,
+                  box-shadow 0.4s ease;
       position: relative;
       overflow: hidden;
+      will-change: transform;
     }
 
     .use-step::before {
@@ -1193,7 +1220,7 @@
         rgba(255, 255, 255, 0.15) 100%
       );
       border-color: rgba(244, 180, 0, 0.5);
-      transform: translateX(8px) scale(1.02);
+      transform: translateX(8px) scale(1.02) translateZ(0);
       box-shadow: 0 12px 40px rgba(244, 180, 0, 0.2),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
@@ -1203,7 +1230,7 @@
     }
 
     .use-step:active {
-      transform: translateX(4px) scale(0.98);
+      transform: translateX(4px) scale(0.98) translateZ(0);
     }
 
     .use-step-num {
@@ -1320,11 +1347,15 @@
       border-radius: 20px;
       padding: 24px 16px;
       text-align: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.4s ease,
+                  border-color 0.4s ease,
+                  box-shadow 0.4s ease;
       position: relative;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
                   inset 0 1px 2px rgba(255, 255, 255, 0.1);
+      will-change: transform;
     }
 
     .trust-card::before {
@@ -1350,7 +1381,7 @@
         rgba(255, 255, 255, 0.1) 100%
       );
       border-color: rgba(244, 180, 0, 0.5);
-      transform: translateY(-6px) scale(1.03);
+      transform: translateY(-6px) scale(1.03) translateZ(0);
       box-shadow: 0 16px 40px rgba(244, 180, 0, 0.3),
                   inset 0 2px 4px rgba(255, 255, 255, 0.15);
     }
@@ -1361,7 +1392,7 @@
     }
 
     .trust-card:active {
-      transform: translateY(-2px) scale(0.98);
+      transform: translateY(-2px) scale(0.98) translateZ(0);
     }
 
     .trust-icon {
@@ -1628,9 +1659,12 @@
                   inset 0 1px 0 rgba(255, 255, 255, 0.8);
       position: relative;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.4s ease,
+                  border-color 0.4s ease;
       cursor: default;
       border: 2px solid rgba(244, 180, 0, 0.1);
+      will-change: transform;
     }
 
     .review-card::before {
@@ -1655,14 +1689,14 @@
     }
 
     .review-card:hover {
-      transform: translateY(-6px) scale(1.02);
+      transform: translateY(-6px) scale(1.02) translateZ(0);
       box-shadow: 0 16px 48px rgba(244, 180, 0, 0.2),
                   inset 0 2px 4px rgba(255, 255, 255, 1);
       border-color: var(--secondary);
     }
 
     .review-card:active {
-      transform: translateY(-2px) scale(0.99);
+      transform: translateY(-2px) scale(0.99) translateZ(0);
     }
 
     .review-quote-icon {
@@ -2381,7 +2415,7 @@
 
   <!-- ═══════════════════════════════ HERO / HOOK ═══════════════════════════════ -->
   <div class="hero">
-    <img src="./Image/Hero.png" style="width: 450px; height: auto; object-fit: cover;" alt="">
+    <img src="./Image/Hero.avif" width="450" height="300" style="width: 100%; height: auto; object-fit: cover;" alt="Neuro Mantra Hero" fetchpriority="high" decoding="async">
   </div>
 
   <!-- ═══════════════════════════════ PAIN / CAUSES ═══════════════════════════════ -->
@@ -2391,19 +2425,19 @@
 
     <div class="pain-grid reveal">
       <div class="pain-hex-card">
-        <span class="pain-hex-icon"> <img src="./Image/1.png" alt=""> </span>
+        <span class="pain-hex-icon"> <img src="./Image/1.avif" width="70" height="70" alt="Muscle stiffness" loading="lazy" decoding="async"> </span>
         <div class="pain-hex-label">मांसपेशियों में stiffness (जकड़न)</div>
       </div>
       <div class="pain-hex-card">
-        <span class="pain-hex-icon"> <img src="./Image/2.png" alt=""> </span>
+        <span class="pain-hex-icon"> <img src="./Image/2.avif" width="70" height="70" alt="Nervous System" loading="lazy" decoding="async"> </span>
         <div class="pain-hex-label">Nervous System का imbalance</div>
       </div>
       <div class="pain-hex-card">
-        <span class="pain-hex-icon"> <img src="./Image/3.png" alt=""> </span>
+        <span class="pain-hex-icon"> <img src="./Image/3.avif" width="70" height="70" alt="Birth factors" loading="lazy" decoding="async"> </span>
         <div class="pain-hex-label">Birth या early development से जुड़े factors</div>
       </div>
       <div class="pain-hex-card">
-        <span class="pain-hex-icon"> <img src="./Image/4.png" alt=""> </span>
+        <span class="pain-hex-icon"> <img src="./Image/4.avif" width="70" height="70" alt="Body coordination" loading="lazy" decoding="async"> </span>
         <div class="pain-hex-label">Body coordination का develop न होना</div>
       </div>
     </div>
@@ -2412,15 +2446,15 @@
 
     <div class="result-pills reveal">
       <div class="result-pill">
-        <div class="result-pill-icon"><img src="./Image/5.png" alt=""></div>
+        <div class="result-pill-icon"><img src="./Image/5.avif" width="56" height="56" alt="Balance" loading="lazy" decoding="async"></div>
         <div class="result-pill-text">Balance बनाने में struggle करता है</div>
       </div>
       <div class="result-pill">
-        <div class="result-pill-icon"><img src="./Image/6.png" alt=""></div>
+        <div class="result-pill-icon"><img src="./Image/6.avif" width="56" height="56" alt="Walking" loading="lazy" decoding="async"></div>
         <div class="result-pill-text">Walking pattern abnormal हो सकता है</div>
       </div>
       <div class="result-pill">
-        <div class="result-pill-icon"><img src="./Image/7.png" alt=""></div>
+        <div class="result-pill-icon"><img src="./Image/7.avif" width="56" height="56" alt="Daily activities" loading="lazy" decoding="async"></div>
         <div class="result-pill-text">Daily activities मुश्किल हो सकती हैं (बैठना, पकड़ना, खाना)</div>
       </div>
     </div>
@@ -2445,7 +2479,7 @@
       <div class="product-img-frame">
         <div class="product-img-bg"></div>
         <div class="product-img-clip">
-          <img src="./Image/Intro.png" alt="Neuro Mantra Product">
+          <img src="./Image/Intro.avif" width="450" height="300" alt="Neuro Mantra Product" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -2475,7 +2509,7 @@
           <div class="step-title">Nervous System Support</div>
           <div class="step-desc">नसों के कार्य को संतुलित रखने में सहायक</div>
           <div class="step-img">
-            <img src="./Image/11.png" alt="Nervous System Support">
+            <img src="./Image/11.avif" width="450" height="200" alt="Nervous System Support" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -2486,7 +2520,7 @@
           <div class="step-title">Muscle Relaxation Support</div>
           <div class="step-desc">Stiffness और tightness को manage करने में मदद</div>
           <div class="step-img">
-            <img src="./Image/12.png" alt="Muscle Relaxation">
+            <img src="./Image/12.avif" width="450" height="200" alt="Muscle Relaxation" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -2497,7 +2531,7 @@
           <div class="step-title">Developmental Support</div>
           <div class="step-desc">Body coordination और response को बेहतर करने में सहयोग</div>
           <div class="step-img">
-            <img src="./Image/13.png" alt="Development Support">
+            <img src="./Image/13.avif" width="450" height="200" alt="Development Support" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -2518,7 +2552,7 @@
 
     <div class="ba-container reveal">
       <div class="ba-side before">
-        <img src="./Image/22.png" alt="Before Neuro Mantra">
+        <img src="./Image/22.avif" width="225" height="280" alt="Before Neuro Mantra" loading="lazy" decoding="async">
         <div class="ba-overlay-label">❌ Before</div>
       </div>
 
@@ -2527,7 +2561,7 @@
       </div>
 
       <div class="ba-side after">
-        <img src="./Image/23.png" alt="After Neuro Mantra">
+        <img src="./Image/23.avif" width="225" height="280" alt="After Neuro Mantra" loading="lazy" decoding="async">
         <div class="ba-overlay-label">✅ After</div>
       </div>
     </div>
@@ -2563,7 +2597,7 @@
     <h2 class="section-title">Ayurveda क्यों Recommend करता है?</h2>
 
     <div class="vata-visual reveal">
-      <img src="./Image/Ayurved.png" alt="Ayurveda Perspective">
+      <img src="./Image/Ayurved.avif" width="450" height="200" alt="Ayurveda Perspective" loading="lazy" decoding="async">
     </div>
 
     <div class="vata-info-cards reveal">
@@ -2600,7 +2634,7 @@
     <div class="ing-grid reveal">
       <div class="ing-card">
         <div class="ing-img">
-          <img src="./Image/14.png" alt="Ashwagandha">
+          <img src="./Image/14.avif" width="200" height="120" alt="Ashwagandha" loading="lazy" decoding="async">
         </div>
         <div class="ing-body">
           <div class="ing-name">अश्वगंधा</div>
@@ -2611,7 +2645,7 @@
 
       <div class="ing-card">
         <div class="ing-img">
-          <img src="./Image/15.png" alt="Brahmi">
+          <img src="./Image/15.avif" width="200" height="120" alt="Brahmi" loading="lazy" decoding="async">
         </div>
         <div class="ing-body">
           <div class="ing-name">ब्राह्मी</div>
@@ -2622,7 +2656,7 @@
 
       <div class="ing-card">
         <div class="ing-img">
-          <img src="./Image/16.png" alt="Shankhpushpi">
+          <img src="./Image/16.avif" width="200" height="120" alt="Shankhpushpi" loading="lazy" decoding="async">
         </div>
         <div class="ing-body">
           <div class="ing-name">शंखपुष्पी</div>
@@ -2633,7 +2667,7 @@
 
       <div class="ing-card">
         <div class="ing-img">
-          <img src="./Image/17.png" alt="Jyotishmati">
+          <img src="./Image/17.avif" width="200" height="120" alt="Jyotishmati" loading="lazy" decoding="async">
         </div>
         <div class="ing-body">
           <div class="ing-name">ज्योतिष्मती</div>
@@ -2685,22 +2719,22 @@
 
     <div class="trust-grid reveal">
       <div class="trust-card">
-        <span class="trust-icon"><img src="./Image/18.png" alt=""></span>
+        <span class="trust-icon"><img src="./Image/18.avif" width="80" height="80" alt="Ayurvedic" loading="lazy" decoding="async"></span>
         <div class="trust-label">Ayurvedic</div>
         <div class="trust-sub">Formulation</div>
       </div>
       <div class="trust-card">
-        <span class="trust-icon"><img src="./Image/19.png" alt=""></span>
+        <span class="trust-icon"><img src="./Image/19.avif" width="80" height="80" alt="Quality Tested" loading="lazy" decoding="async"></span>
         <div class="trust-label">Quality Tested</div>
         <div class="trust-sub">Lab verified</div>
       </div>
       <div class="trust-card">
-        <span class="trust-icon"><img src="./Image/20.png" alt=""></span>
+        <span class="trust-icon"><img src="./Image/20.avif" width="80" height="80" alt="GMP Compliant" loading="lazy" decoding="async"></span>
         <div class="trust-label">GMP Compliant</div>
         <div class="trust-sub">Manufacturing</div>
       </div>
       <div class="trust-card">
-        <span class="trust-icon"><img src="./Image/21.png" alt=""></span>
+        <span class="trust-icon"><img src="./Image/21.avif" width="80" height="80" alt="Expert Guided" loading="lazy" decoding="async"></span>
         <div class="trust-label">Expert Guided</div>
         <div class="trust-sub">Support system</div>
       </div>
@@ -2767,7 +2801,7 @@
   <head>
 
     <!-- ORDER FORM SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
     <script>
       function submitOrder(event) {
         // Placeholder function for order submission
@@ -2889,7 +2923,7 @@
 
       <!-- Product Showcase -->
       <div class="order-product-showcase reveal">
-        <img src="./Image/Product.png" alt="Neuro Mantra" class="order-product-img">
+        <img src="./Image/Product.avif" width="250" height="250" alt="Neuro Mantra Product" class="order-product-img" loading="lazy" decoding="async">
         <div class="order-product-name">Neuro Mantra</div>
         <div class="order-product-tagline">Ayurvedic Neurological Support for Kids</div>
         
@@ -2975,7 +3009,7 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">पहले मेरे बेटे को चलने में बहुत दिक्कत थी… अब धीरे-धीरे improvement दिख रहा है।</div>
         <div class="review-author">
-          <div class="review-avatar"><img src="./Image/Client1.png" alt=""></div>
+          <div class="review-avatar"><img src="./Image/Client1.avif" width="56" height="56" alt="Sunil" loading="lazy" decoding="async"></div>
           <div>
             <div class="review-name">Sunil</div>
             <div class="review-city">📍 Jaipur</div>
@@ -2988,7 +3022,7 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">हमें सही guidance नहीं मिल रही थी… यहाँ से clear direction मिला।</div>
         <div class="review-author">
-          <div class="review-avatar"><img src="./Image/Client2.png" alt=""></div>
+          <div class="review-avatar"><img src="./Image/Client2.avif" width="56" height="56" alt="Ravi" loading="lazy" decoding="async"></div>
           <div>
             <div class="review-name">Ravi</div>
             <div class="review-city">📍 Delhi</div>
@@ -3001,7 +3035,7 @@
         <div class="review-stars">★★★★★</div>
         <div class="review-text">Consistency से फर्क दिखता है… support team बहुत helpful है।</div>
         <div class="review-author">
-          <div class="review-avatar"><img src="./Image/Client3.png" alt=""></div>
+          <div class="review-avatar"><img src="./Image/Client3.avif" width="56" height="56" alt="Pooja" loading="lazy" decoding="async"></div>
           <div>
             <div class="review-name">Pooja</div>
             <div class="review-city">📍 Indore</div>
@@ -3111,50 +3145,58 @@
   </div>
 
   <script>
-    // FAQ toggle
+    // FAQ toggle - optimized
     function toggleFaq(el) {
       const item = el.parentElement;
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
 
-    // Scroll reveal
+    // Optimized Scroll reveal with IntersectionObserver
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+    if (reveals.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target); // Stop observing once revealed
+          }
+        });
+      }, { 
+        threshold: 0.1,
+        rootMargin: '50px' // Start animation slightly before element enters viewport
       });
-    }, { threshold: 0.12 });
 
-    reveals.forEach(el => observer.observe(el));
+      reveals.forEach(el => observer.observe(el));
+    }
 
-    // Symptom card ripple
-    document.querySelectorAll('.symptom-card').forEach(card => {
-      card.addEventListener('click', function (e) {
-        const ripple = document.createElement('span');
-        ripple.style.cssText = `
-        position:absolute; border-radius:50%;
-        width:60px; height:60px;
-        background:rgba(244,180,0,0.25);
-        transform:scale(0); animation:ripple 0.5s linear;
-        left:${e.offsetX - 30}px; top:${e.offsetY - 30}px;
-        pointer-events:none;
-      `;
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        this.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 500);
+    // Optimized ripple effect with passive listeners
+    const symptomCards = document.querySelectorAll('.symptom-card');
+    if (symptomCards.length > 0) {
+      const style = document.createElement('style');
+      style.textContent = `@keyframes ripple { to { transform:scale(4) translateZ(0); opacity:0; } }`;
+      document.head.appendChild(style);
+
+      symptomCards.forEach(card => {
+        card.addEventListener('click', function (e) {
+          const ripple = document.createElement('span');
+          ripple.style.cssText = `
+            position:absolute; border-radius:50%;
+            width:60px; height:60px;
+            background:rgba(244,180,0,0.25);
+            transform:scale(0) translateZ(0);
+            animation:ripple 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            left:${e.offsetX - 30}px; top:${e.offsetY - 30}px;
+            pointer-events:none; will-change:transform, opacity;
+          `;
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 500);
+        }, { passive: true });
       });
-    });
-
-    // CSS for ripple
-    const style = document.createElement('style');
-    style.textContent = `@keyframes ripple { to { transform:scale(4); opacity:0; } }`;
-    document.head.appendChild(style);
+    }
   </script>
 </body>
 
